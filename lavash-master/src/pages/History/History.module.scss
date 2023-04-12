@@ -1,0 +1,93 @@
+.authWrap{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 150px 0;
+}
+
+.auth{
+	width: 700px;
+	min-height: 403px;
+	background-color: #FFFFFF;
+	border-radius: 19px;
+	padding: 50px 43px;
+	&__backLink{
+		text-align: center;
+	}
+}
+
+.table{
+	margin-top: 40px;
+	border-collapse: collapse;
+	width: 100%;
+	&__num{
+		border: 1px solid #ada9a9;
+		width: 40px;
+		padding: 6px;
+	}
+	&__status{
+		border: 1px solid #ada9a9;
+		width: 100px;
+		padding: 6px;
+	}
+	&__date{
+		border: 1px solid #ada9a9;
+		width: 170px;
+		padding: 6px;
+	}
+	&__sum{
+		border: 1px solid #ada9a9;
+		width: 100px;
+		padding: 6px;
+	}
+	&__title{
+		font-size: 16px;
+		font-weight: bold;
+	}
+	&__info{
+		font-size: 14px;
+		color:#494747;
+	}
+}
+
+
+
+
+
+@media(max-width: 480px){
+	.passVisible{
+		&__img{
+			top: 28px;
+		}
+	}
+	.auth{
+		width: 100%;
+		height: 403px;
+		padding: 30px 23px;
+		&__title{
+			font-size: 18px;
+			line-height: 20px;
+		}
+		&__revPhone{
+			width: 100%;
+			height: 40px;
+		}
+		&__revEmail{
+			width: 100%;
+			height: 40px;
+		}
+		&__revPass{
+			width: 100%;
+			height: 40px;
+		}
+		&__btnEnter{
+			height: 35px;
+		}
+		&__btnReg{
+			height: 35px;
+		}
+	}
+	.chese{
+		display: none;
+	}
+}
