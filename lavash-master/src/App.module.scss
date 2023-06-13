@@ -1,0 +1,24 @@
+.scroll_up{
+	position: fixed;
+	right: 40px;
+	bottom: 60px;
+	width: 50px;
+	height: 50px;
+	z-index: 100;
+	cursor: pointer;
+}
+
+@media(max-width: 650px){
+	.scroll_up{
+		right: 10px;
+		bottom: 30px;
+		width: 40px;
+		height: 40px;
+		z-index: 100;
+		cursor: pointer;
+		img{
+			width: 40px;
+			height: 40px;
+		}
+	}
+}

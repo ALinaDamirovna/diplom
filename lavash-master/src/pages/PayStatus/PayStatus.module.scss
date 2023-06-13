@@ -1,0 +1,67 @@
+.payStatusWrap{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 150px 0;
+}
+
+.payStatus{
+	position: relative;
+	width: 80%;
+	height: 403px;
+	background-color: #FFFFFF;
+	border-radius: 19px;
+	padding: 50px 43px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&__success{
+		font-family: 'Montserrat';
+		font-style: normal;
+		font-weight: 600;
+		font-size: calc( (100vw - 480px)/(1280 - 480) * (24 - 16) + 16px);
+		color: #00930F;
+	}
+	&__failed{
+		font-family: 'Montserrat';
+		font-style: normal;
+		font-weight: 600;
+		font-size: calc( (100vw - 480px)/(1280 - 480) * (24 - 16) + 16px);
+		color:#A20B02;
+	}
+	&__buttons{
+		position: absolute;
+		bottom: 10px;
+		left: 0;
+		width: 100%;
+		padding: 0 30px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__btn{
+		padding: 6px 10px;
+		font-family: 'Inter';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 19px;
+		color: #000;
+	}
+	&__btn:hover{
+		color: rgb(122, 121, 121);
+	}
+}
+
+
+
+@media(max-width: 500px){
+	.payStatus__btn{
+		padding: 3px 6px;
+		font-family: 'Inter';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 10px;
+	}
+}
