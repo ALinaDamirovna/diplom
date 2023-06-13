@@ -22,6 +22,12 @@ return new class extends Migration
             $table->foreign('category')->references('id')->on('product_categories');
         });
     }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {

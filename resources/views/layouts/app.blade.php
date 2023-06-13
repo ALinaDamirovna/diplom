@@ -142,12 +142,18 @@
                             <span>Главная</span>
                         </a>
                     </li>
+
+                    @can('change-orders')
                     <li>
                         <a href="{{ $mainDIR }}orders/" class="waves-effect">
                             <i class="mdi mdi-home-variant-outline"></i>
                             <span>Заказы</span>
                         </a>
                     </li>
+                    @endcan
+
+
+                    @can('crud-products')
                     <li>
                         <a href="{{ $mainDIR }}promocodes/" class="waves-effect">
                             <i class="mdi mdi-home-variant-outline"></i>
@@ -189,12 +195,14 @@
                             <span>Категории опций</span>
                         </a>
                     </li>
+
                     <li>
                         <a href="{{ $mainDIR }}settings/" class=" waves-effect">
                             <i class="ri-shopping-basket-2-line"></i>
                             <span>Настройки</span>
                         </a>
                     </li>
+                    @endcan
                 </ul>
             </div>
             <!-- Sidebar -->
@@ -225,7 +233,7 @@
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Elyts</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">PL</a></li>
                                     <li class="breadcrumb-item active">@yield('title')</li>
                                 </ol>
                             </div>

@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql
+    restart: always
+    environment:
+      - MYSQL_USER=r16
+      - MYSQL_PASSWORD=holdmybeer
+      - MYSQL_DATABASE=r16
+      - MYSQL_ROOT_PASSWORD=hmmmmmmmmm
+    ports:
+        - 3306:3306
+    volumes:
+      - /home/bulat/DB/R16:/var/lib/mysql
+  myapp:
+    image: bitnami/laravel
+    ports:
+      - 8080:8000
+    restart: always
+    environment:
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_DATABASE=r16
+      - DB_USERNAME=r16
+      - DB_PASSWORD=holdmybeer
+    volumes:
+      - /home/bulat/PhpstormProjects/R16:/app
+    depends_on:
+      - mysql

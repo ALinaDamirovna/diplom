@@ -124,6 +124,11 @@ class OrderController extends Controller
         ];
     }
 
+    public function deliverySettings()
+    {
+        return Setting::where('module', 'delivery')->pluck('value', 'setting')->toArray();
+    }
+
     static public function formatPhone($phone)
     {
         $phone = preg_replace('/\D/', '', $phone);
@@ -178,7 +183,14 @@ class OrderController extends Controller
             dispatch(new SendSMS($phone, 'PL #'.$order->id.' '.$orderLink));
         }
 
-        Order::sendAdminNotif('Создан новый заказ #'.$order->id. ' https://lavash.endlessmind.space/orders/'.$order->id.'/edit');
+        $notifStr = '🖊 Новый заказ №<b>' . $order->id . '</b>' .
+                    PHP_EOL . '📞 Клиент: <b>' . @$params['contact']['name'] . ' ' . $phone . '</b>' .
+                    PHP_EOL . '💵 Сумма заказа: <b>' . $totalSum . '</b>' .
+                    PHP_EOL . '📝 Комментарий: <b>' . @$params['comment'] . '</b>' .
+                    PHP_EOL . '🔗 Управление заказом: https://lavash.endlessmind.space/orders/'.$order->id.'/edit';
+
+        Order::sendAdminNotif($notifStr);
+
 
         // TODO: Формирование и возврат ссылки на оплату
         return [
@@ -223,8 +235,6 @@ class OrderController extends Controller
 
         unset($fields['total_price']);
 
-
-
         $fields['category']     = 'Новый статус';
         $fieldTypes['category'] = 'select';
 
@@ -233,6 +243,9 @@ class OrderController extends Controller
 
         $fields['delivery']     = 'Доставка';
         $fieldTypes['delivery'] = 'textarea_readonly';
+
+        $fields['comment']     = 'Комментарий клиента';
+        $fieldTypes['comment'] = 'textarea_readonly';
 
         $cats = DB::table('order_statuses')->select(['id', 'name'])->get()->pluck('name', 'id')->toArray();
 

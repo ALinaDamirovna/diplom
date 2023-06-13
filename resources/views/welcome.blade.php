@@ -3,8 +3,6 @@
 @section('title', 'Главная')
 
 @section('content')
-
-
     @can('view-transactions')
         <div class="row">
             <div class="col-lg-12">

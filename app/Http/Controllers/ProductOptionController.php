@@ -114,7 +114,7 @@ class ProductOptionController extends Controller
         $item->composition = $request->composition;
         $item->price       = (int) $request->price;
         $item->desc        = $request->desc;
-        $item->group_id    = $request->group_id ?? 1;
+        $item->group_id    = $request->category ?? 1;
         $item->sort        = (int) $request->sort;
 
         $item->save();

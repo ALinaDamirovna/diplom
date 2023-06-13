@@ -42,6 +42,8 @@ Route::middleware('throttle:none')->group(function(){
         Route::post('/', [OrderController::class, 'createOrder']);
         Route::post('/calc', [OrderController::class, 'calcOrder']);
         Route::get('/{id}/{hash}', [OrderController::class, 'getOrderInfo']);
+        Route::get('/settings', [OrderController::class, 'deliverySettings']);
+
     });
 });
 

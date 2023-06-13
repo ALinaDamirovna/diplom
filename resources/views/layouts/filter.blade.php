@@ -8,9 +8,12 @@
                 <h5 class="m-0 font-size-14" style="position: relative; color: #eee;">
                     <b>Фильтр</b>
 
-                    @can('create-' . $viewInfo['mainRoute'])
+{{--                    @can('create-' . $viewInfo['mainRoute'])--}}
+
+                    @if(class_basename(@$list[0]) != 'Order')
                         <a href="{{ route($viewInfo['mainRoute'] . '.create') }}" class="btn btn-sm btn-outline-success float-end" style="position: relative; z-index: 2;">Создать</a>
-                    @endcan
+                    @endif
+{{--                    @endcan--}}
 
                     @if($viewInfo['mainRoute'] == 'clients')
                         @can('create-serts')
